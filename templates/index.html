@@ -1,0 +1,23 @@
+# frontend/index.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Multimodal Interaction UI</title>
+  <style>
+    body { font-family: Arial, sans-serif; text-align: center; margin-top: 50px; }
+    video { border: 2px solid black; }
+  </style>
+</head>
+<body>
+  <h1>Multimodal Interaction System</h1>
+  <video id="video" width="640" height="480" autoplay></video>
+  <script>
+    const video = document.getElementById('video');
+    navigator.mediaDevices.getUserMedia({ video: true })
+      .then(stream => video.srcObject = stream)
+      .catch(err => console.error('Error accessing webcam: ', err));
+  </script>
+</body>
+</html>
+
